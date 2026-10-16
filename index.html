@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-t="green">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عبد الرحمن</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="font-ui" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;display=swap">
+<link id="font-scheherazade" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&amp;display=swap">
+<style id="css">
+  :root, :root[data-t="green"] {
+    --bg:#E6EDE4; --sheet:#D5E2D2; --ink:#1F3A33; --muted:#5E766C; --accent:#4D7C6B; --line:rgba(31,58,51,.18); --danger:#A8402F;
+    --f-display:"Scheherazade New","Amiri",serif; --f-body:"Scheherazade New","Amiri",serif; --f-ui:"Tajawal",sans-serif;
+    --fs:1.25rem; --title-weight:700; --hero-size:clamp(2.2rem,10vw,3.1rem); --hero-lh:1.7; --hero-weight:400; --hero-align:center;
+  }
+  :root[data-t="dusk"] {
+    --bg:#F3ECEE; --sheet:#EADDE1; --ink:#2B2233; --muted:#75677C; --accent:#8A4F6B; --line:rgba(43,34,51,.16);
+    --f-display:"Aref Ruqaa","Amiri",serif; --f-body:"Amiri","Traditional Arabic",serif; --fs:1.2rem; --hero-size:clamp(2.2rem,10vw,3rem); --hero-weight:700;
+  }
+  :root[data-t="night"] {
+    --bg:#151B33; --sheet:#1F2748; --ink:#F1EADB; --muted:#A9ADC2; --accent:#D8BC82; --line:rgba(241,234,219,.2); --danger:#E59A8A;
+    --f-display:"Reem Kufi","Noto Naskh Arabic",sans-serif; --f-body:"Noto Naskh Arabic","Amiri",serif; --fs:1.1rem; --title-weight:600;
+    --hero-size:clamp(1.9rem,9vw,2.7rem); --hero-lh:1.8; --hero-weight:600;
+  }
+  :root[data-t="bold"] {
+    --bg:#FAFAF7; --sheet:#EFEFE8; --ink:#111111; --muted:#5C5C5C; --accent:#2540D9; --line:rgba(17,17,17,.2);
+    --f-display:"Lalezar","Tajawal",sans-serif; --f-body:"Amiri","Traditional Arabic",serif; --fs:1.2rem; --title-weight:400;
+    --hero-size:clamp(2.8rem,15vw,4.4rem); --hero-lh:1.3; --hero-weight:400; --hero-align:start;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root[data-t="green"] { --bg:#16221E; --sheet:#20302A; --ink:#E3EDE4; --muted:#9AB1A6; --accent:#8FC1AE; --line:rgba(227,237,228,.2); --danger:#E59A8A; }
+    :root[data-t="dusk"]  { --bg:#1E1824; --sheet:#2A2232; --ink:#EBDFE7; --muted:#A596AD; --accent:#D99DB8; --line:rgba(235,223,231,.18); --danger:#E59A8A; }
+    :root[data-t="bold"]  { --bg:#0F1013; --sheet:#1A1C22; --ink:#F3F3EE; --muted:#A0A0A8; --accent:#8CA0FF; --line:rgba(243,243,238,.2); --danger:#E59A8A; }
+  }
+
+  :root { box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
+  *, *::before, *::after { box-sizing:inherit; }
+  html { font-size:calc(100% * var(--scale,1)); scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4.5rem); -webkit-text-size-adjust:100%; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--f-body); font-size:calc(var(--fs) * var(--fscale,1)); line-height:2; }
+  body.admin main { padding-bottom:6.5rem; }
+  button { font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+  .wrap { max-width:34rem; margin:0 auto; padding:0 1.4rem; }
+  [hidden] { display:none !important; }
+
+  .topbar { padding-top:1.3rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .topbar .name { touch-action:manipulation; -webkit-tap-highlight-color:transparent; cursor:pointer; margin:0; font-family:var(--f-display); font-weight:var(--title-weight); font-size:1.3em; line-height:1.6; }
+  .badge { font-family:var(--f-ui); font-size:.8rem; padding:.1rem .7rem; border:1px solid var(--accent); border-radius:999px; color:var(--accent); line-height:1.8; }
+
+  header.hero { text-align:var(--hero-align); padding:2.4rem 0 1.6rem; }
+  header.hero h1 { margin:0; font-family:var(--f-display); font-weight:var(--hero-weight); font-size:var(--hero-size); line-height:var(--hero-lh); animation:rise .9s ease-out both; }
+  header.hero h1 span { display:block; color:var(--accent); }
+  .bio { margin:.8rem 0 0; color:var(--muted); font-family:var(--f-ui); font-size:.95rem; line-height:1.9; }
+  @keyframes rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+  @media (prefers-reduced-motion: reduce) { header.hero h1 { animation:none; } }
+
+  nav.tabs { position:sticky; top:env(safe-area-inset-top,0px); z-index:5; background:var(--bg); padding:.6rem 0; }
+  .tabsbar { display:flex; gap:.6rem; overflow-x:auto; scrollbar-width:none; }
+  .tabsbar::-webkit-scrollbar { display:none; }
+  .tab { flex:1 0 auto; min-height:46px; padding:0 1.1rem; white-space:nowrap; border-radius:6px; font-family:var(--f-ui); font-size:1rem; font-weight:500; border:1px solid var(--accent); color:var(--ink); }
+  .tab[aria-selected="true"] { background:var(--accent); color:var(--bg); }
+
+  .chips { display:flex; gap:.5rem; justify-content:center; padding:.5rem 0 0; font-family:var(--f-ui); }
+  .chip { min-height:44px; padding:0 1.1rem; border-radius:999px; border:1px solid var(--line); font-size:.9rem; color:var(--muted); }
+  .chip[aria-pressed="true"] { border-color:var(--accent); color:var(--accent); font-weight:500; }
+
+  main { padding-bottom:2.5rem; }
+  .empty { text-align:center; color:var(--muted); padding:2.5rem 0; font-family:var(--f-ui); font-size:.95rem; }
+
+  .entry, .letter { font-family:var(--f-body); }
+  .entry { padding:2.2rem 0 1.2rem; border-bottom:1px solid var(--line); scroll-margin-top:4.5rem; }
+  .entry:last-child { border-bottom:0; }
+  .entry h2 { margin:0; text-align:center; font-family:var(--f-display); font-weight:var(--title-weight); font-size:1.45em; line-height:1.6; }
+  .meta { display:flex; justify-content:center; gap:.9rem; margin:0 0 1.1rem; font-size:.85em; color:var(--accent); }
+  .meta .date { color:var(--muted); }
+  .poem p { margin:0; text-align:center; font-size:1.2em; line-height:2.1; }
+  .prose p { margin:0 0 1rem; font-size:1.12em; line-height:2.05; text-align:start; }
+  .clamped { max-height:11rem; overflow:hidden; -webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent); mask-image:linear-gradient(to bottom,#000 55%,transparent); }
+  .more { display:block; margin:.2rem auto 0; min-height:44px; padding:0 1rem; font-family:var(--f-ui); font-size:.9rem; color:var(--accent); }
+  .flash { animation:flash 1.6s ease-out; }
+  @keyframes flash { from{outline:2px solid var(--accent); outline-offset:6px} to{outline:2px solid transparent; outline-offset:6px} }
+
+  .actions { display:flex; justify-content:center; flex-wrap:wrap; gap:.3rem; margin-top:.6rem; }
+  .actions button { min-height:44px; padding:0 .9rem; font-family:var(--f-ui); font-size:.9rem; color:var(--accent); }
+  .actions button.owner-btn { color:var(--muted); }
+  .actions button.danger { color:var(--danger); }
+
+  .letter { position:relative; margin:2.6rem 0; padding:2.4rem 1.5rem 1rem; background:var(--sheet); border-radius:4px; scroll-margin-top:4.5rem; }
+  .letter::before { content:""; position:absolute; top:-9px; left:50%; width:18px; height:18px; margin-left:-9px; border-radius:50%; background:var(--accent); }
+  .letter .to { margin:0 0 .8rem; font-family:var(--f-display); font-weight:var(--title-weight); font-size:1.4em; line-height:1.7; color:var(--accent); }
+  .letter .body p { margin:0 0 .9rem; font-size:1.08em; line-height:2.05; }
+  .letter .from { margin:.4rem 0 0; text-align:end; color:var(--muted); font-size:.95em; }
+  .letter .date { display:block; font-size:.85em; }
+  .letter .actions { justify-content:flex-start; }
+
+  .sample-note { text-align:center; color:var(--muted); font-family:var(--f-ui); font-size:.85rem; margin:1.6rem 0 0; }
+
+  .adminbar { position:fixed; left:0; right:0; bottom:0; z-index:15; display:flex; gap:.4rem; padding:.5rem .8rem calc(.5rem + env(safe-area-inset-bottom,0px)); background:var(--ink); color:var(--bg); font-family:var(--f-ui); }
+  .adminbar button { position:relative; flex:1; min-height:46px; border-radius:6px; font-size:.95rem; border:1px solid var(--bg); color:var(--bg); }
+  .adminbar button.primary { background:var(--accent); border-color:var(--accent); }
+  .dot { position:absolute; top:6px; right:8px; width:9px; height:9px; border-radius:50%; background:var(--danger); }
+  .admin-btn { min-height:44px; padding:0 1rem; border:1px solid var(--accent); border-radius:6px; font-family:var(--f-ui); font-size:.85rem; color:var(--accent); }
+
+  .sheet { position:fixed; inset:0; z-index:25; background:var(--bg); overflow-y:auto; padding:calc(1rem + env(safe-area-inset-top,0px)) 0 calc(2.5rem + env(safe-area-inset-bottom,0px)); font-family:var(--f-ui); }
+  .sheet h3 { margin:1.2rem 0 .3rem; font-family:var(--f-display); font-size:1.4em; font-weight:var(--title-weight); }
+  .sheet h4 { margin:1.8rem 0 .2rem; font-family:var(--f-ui); font-size:.95rem; color:var(--accent); font-weight:700; }
+  .sheet .head { display:flex; align-items:center; justify-content:space-between; }
+  .field { margin:.8rem 0; font-family:var(--f-ui); }
+  .field label { display:block; font-size:.9rem; color:var(--muted); margin-bottom:.2rem; }
+  .field input, .field select, .field textarea { width:100%; min-height:46px; padding:.5rem .8rem; font:inherit; font-size:1rem; color:var(--ink); background:var(--sheet); border:1px solid var(--line); border-radius:6px; }
+  .field textarea { min-height:12rem; font-family:var(--f-body); font-size:1.25rem; line-height:2; resize:vertical; }
+  .field textarea.short { min-height:5rem; font-family:var(--f-ui); font-size:1rem; line-height:1.8; }
+  .check { display:flex; align-items:center; gap:.7rem; min-height:44px; font-family:var(--f-ui); font-size:1rem; }
+  .check input { width:22px; height:22px; accent-color:var(--accent); }
+  .btn-row { display:flex; gap:.6rem; margin-top:1rem; font-family:var(--f-ui); flex-wrap:wrap; }
+  .btn { flex:1; min-width:9rem; min-height:48px; border-radius:6px; border:1px solid var(--accent); font-size:1rem; font-weight:500; }
+  .btn.primary { background:var(--accent); color:var(--bg); }
+  .btn.danger { border-color:var(--danger); color:var(--danger); }
+  .btn[disabled] { opacity:.6; }
+  .err { color:var(--danger); font-family:var(--f-ui); font-size:.9rem; min-height:1.4rem; margin:.4rem 0 0; }
+  .hint, .note { color:var(--muted); font-family:var(--f-ui); font-size:.88rem; margin:.3rem 0; line-height:1.9; }
+  .steps { font-family:var(--f-ui); font-size:.95rem; line-height:2; padding-inline-start:1.3rem; margin:.6rem 0; }
+  .themes { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; margin-top:.5rem; font-family:var(--f-ui); }
+  .theme { min-height:64px; padding:.5rem; border:1px solid var(--line); border-radius:8px; text-align:center; font-size:.9rem; }
+  .theme[aria-pressed="true"] { border:2px solid var(--accent); }
+  .theme .sw { display:inline-block; width:16px; height:16px; border-radius:50%; border:1px solid var(--line); margin:0 2px; vertical-align:middle; }
+
+  .fonts { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; margin-top:.4rem; }
+  .fopt { display:flex; flex-direction:column; align-items:flex-start; width:100%; min-height:64px; padding:.4rem .7rem; border:1px solid var(--line); border-radius:8px; text-align:start; }
+  .fopt[aria-pressed="true"] { border:2px solid var(--accent); }
+  .fname { font-family:var(--f-ui); font-size:.78rem; color:var(--muted); line-height:1.6; }
+  .fsample { font-size:1.05rem; line-height:1.8; color:var(--ink); }
+  .secrow { display:flex; gap:.4rem; align-items:center; margin:.5rem 0; }
+  .secrow input { flex:1; min-width:0; min-height:46px; padding:.5rem .8rem; font:inherit; font-size:1rem; color:var(--ink); background:var(--sheet); border:1px solid var(--line); border-radius:6px; }
+  .mini { min-height:44px; min-width:44px; padding:0 .6rem; font-family:var(--f-ui); font-size:.85rem; color:var(--accent); border:1px solid var(--line); border-radius:6px; }
+  .mini.danger { color:var(--danger); }
+
+  .toast { position:fixed; left:50%; bottom:calc(1.4rem + env(safe-area-inset-bottom,0px)); z-index:40; transform:translate(-50%,20px); max-width:90vw; text-align:center; background:var(--ink); color:var(--bg); padding:.3rem 1.2rem; border-radius:999px; font-family:var(--f-ui); font-size:.9rem; line-height:2; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; }
+  body.admin .toast { bottom:calc(5rem + env(safe-area-inset-bottom,0px)); }
+  .toast.show { opacity:1; transform:translate(-50%,0); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<template id="skeleton">
+<div class="topbar wrap"><p class="name" id="siteName"></p><span class="badge" id="badge" hidden="">وضع الإدارة</span></div>
+<header class="hero wrap"><h1 id="heroTitle"></h1><p class="bio" id="bio" hidden=""></p></header>
+<nav class="tabs" aria-label="الأقسام"><div class="wrap tabsbar" role="tablist" id="tabs"></div></nav>
+<main class="wrap">
+  <div class="chips" id="chips" hidden=""></div>
+  <section id="list" role="tabpanel"></section>
+  <p class="sample-note" id="sampleNote" hidden="">هذه نصوص تجريبية، سيتم استبدالها بكتاباتك.</p>
+</main>
+
+<div class="adminbar" id="adminBar" hidden="">
+  <button type="button" id="addBtn">نص جديد</button>
+  <button type="button" id="setBtn">الإعدادات</button>
+  <button type="button" class="primary" id="pubBtn">نشر<span class="dot" id="dot" hidden=""></span></button>
+</div>
+
+<div class="sheet" id="editor" hidden=""><div class="wrap">
+  <div class="head"><h3 id="edTitle">نص جديد</h3><button class="admin-btn" id="edClose" type="button">إغلاق</button></div>
+  <div class="field"><label for="fSec">القسم</label><select id="fSec"></select></div>
+  <div class="field"><label for="fType">النوع</label><select id="fType"><option value="poem">شعر</option><option value="prose">نثر</option><option value="letter">رسالة (على ورقة)</option></select></div>
+  <div class="field"><label for="fTitle" id="lTitle">العنوان</label><input id="fTitle" type="text" autocomplete="off"></div>
+  <div class="field"><label for="fBody">النص</label><textarea id="fBody"></textarea><p class="hint" id="hBody"></p></div>
+  <div class="field" id="rowFrom"><label for="fFrom">التوقيع</label><input id="fFrom" type="text" autocomplete="off" placeholder="من أحدٍ يفهمك"></div>
+  <div class="field"><label for="fDate">التاريخ (اكتبه كما تشاء، أو اتركه فارغًا)</label><input id="fDate" type="text" autocomplete="off"></div>
+  <h4>خط هذا النص</h4>
+  <div class="fonts" id="edFonts"></div>
+  <p class="err" id="edErr" role="alert"></p>
+  <div class="btn-row"><button class="btn primary" id="edSave" type="button">حفظ</button><button class="btn" id="edCancel" type="button">إلغاء</button></div>
+</div></div>
+
+<div class="sheet" id="settings" hidden=""><div class="wrap">
+  <div class="head"><h3>الإعدادات</h3><button class="admin-btn" id="setClose" type="button">إغلاق</button></div>
+  <h4>الهوية</h4>
+  <div class="field"><label for="sName">الاسم (أعلى اليمين)</label><input id="sName" type="text" autocomplete="off"></div>
+  <div class="field"><label for="sL1">العبارة، السطر الأول</label><input id="sL1" type="text" autocomplete="off"></div>
+  <div class="field"><label for="sL2">العبارة، السطر الثاني (بلون التمييز)</label><input id="sL2" type="text" autocomplete="off"></div>
+  <div class="field"><label for="sBio">سطر تعريفي صغير تحت العبارة (اختياري)</label><textarea id="sBio" class="short"></textarea></div>
+  <h4>الأقسام</h4>
+  <div id="secList"></div>
+  <div class="btn-row"><button class="btn" id="secAdd" type="button">إضافة قسم</button></div>
+  <h4>التصميم</h4>
+  <div class="themes" id="themeList"></div>
+  <h4>خط النصوص في الموقع كله</h4>
+  <div class="fonts" id="gfBody"></div>
+  <h4>خط العناوين والعبارة</h4>
+  <div class="fonts" id="gfTitle"></div>
+  <div class="field"><label for="sScale">حجم الخط</label><select id="sScale"><option value="0.9">صغير</option><option value="1">متوسط</option><option value="1.12">كبير</option></select></div>
+  <h4>العرض</h4>
+  <label class="check"><input type="checkbox" id="sDates"> إظهار التواريخ</label>
+  <label class="check"><input type="checkbox" id="sShare"> إظهار أزرار النسخ والمشاركة</label>
+  <p class="err" id="setErr" role="alert"></p>
+  <div class="btn-row"><button class="btn primary" id="setSave" type="button">حفظ</button><button class="btn" id="setCancel" type="button">إلغاء</button></div>
+</div></div>
+
+<div class="sheet" id="publish" hidden=""><div class="wrap">
+  <div class="head"><h3>نشر التعديلات</h3><button class="admin-btn" id="pubClose" type="button">إغلاق</button></div>
+  <p class="note" id="pubStatus"></p>
+  <p class="err" id="pubErr" role="alert"></p>
+  <ol class="steps">
+    <li>اضغط «تنزيل الملف المحدّث» ليُحفظ باسم index.html.</li>
+    <li>ارفعه إلى مستودع موقعك على GitHub (Add file ثم Upload files) واستبدل الملف القديم.</li>
+    <li>انتظر دقيقة تقريبًا ثم افتح رابط موقعك وحدّث الصفحة.</li>
+  </ol>
+  <div class="btn-row"><button class="btn primary" id="pubDownload" type="button">تنزيل الملف المحدّث</button><button class="btn" id="pubCopy" type="button">نسخ الكود</button></div>
+  <p class="note">افتح وضع الإدارة من متصفح عادي (سفاري أو كروم) وليس من متصفح إنستغرام، لأن التنزيل قد لا يعمل فيه. التعديلات تُحفظ على هذا الجهاز فقط إلى أن تُنشر، ولا يراها الزوار قبل ذلك.</p>
+  <h4>خيارات أخرى</h4>
+  <div class="btn-row"><button class="btn danger" id="pubDiscard" type="button">تجاهل التعديلات غير المنشورة</button><button class="btn" id="pubExit" type="button">خروج من وضع الإدارة</button><button class="btn" id="pubForget" type="button">حذف مفتاح النشر من الجهاز</button></div>
+</div></div>
+
+<div class="sheet" id="token" hidden=""><div class="wrap">
+  <div class="head"><h3>تفعيل وضع الإدارة</h3><button class="admin-btn" id="tkClose" type="button">إغلاق</button></div>
+  <p class="note">هذه الخطوة لصاحب الموقع فقط، وتتم مرة واحدة على جوالك. أدخل اسم المستودع ومفتاح الوصول من حسابك في GitHub ليتمكن الموقع من نشر تعديلاتك مباشرة.</p>
+  <div class="field"><label for="tkRepo">المستودع (اسم_المستخدم/اسم_المستودع)</label><input id="tkRepo" type="text" autocomplete="off" dir="ltr" placeholder="username/my-site"></div>
+  <div class="field"><label for="tkInput">مفتاح الوصول (Fine-grained token)</label><input id="tkInput" type="password" autocomplete="off" dir="ltr"></div>
+  <p class="err" id="tkErr" role="alert"></p>
+  <div class="btn-row"><button class="btn primary" id="tkGo" type="button">تفعيل</button></div>
+  <p class="note">يجب أن يكون المفتاح محصورًا بمستودع الموقع فقط، بصلاحية Contents: Read and write. يُحفظ على هذا الجهاز فقط ولا يراه الزوار، ويمكنك إلغاؤه من GitHub في أي وقت.</p>
+</div></div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</template>
+
+<script type="application/json" id="data">{"rev":2,"settings":{"name":"عبد الرحمن","line1":"بعضُ الكلام","line2":"يشفي","bio":"","theme":"green","scale":1,"showDates":true,"showShare":true,"font":"","titleFont":""},"sections":[{"id":"s1","name":"شعر ونثر"},{"id":"s2","name":"رسائل للقلوب"}],"entries":[{"id":"nmvacyhsael","sec":"s1","type":"poem","title":"بسم الله","date":"١٦ أكتوبر","body":["الحمدلله"]},{"id":"w1","sec":"s1","type":"poem","sample":true,"title":"ما لم يُقَل","date":"١٢ أكتوبر","body":["كلُّ ما لم أقلهُ","صارَ بيتًا صغيرًا في صدري","أُشعلُ فيهِ ضوءًا كلَّ مساء","وأنتظرُ أن يمرَّ أحدٌ بالنافذة"]},{"id":"w2","sec":"s1","type":"prose","sample":true,"title":"عن الغياب","date":"١٠ أكتوبر","body":["الغيابُ ليس فراغًا كما يظنّون؛ إنه غرفةٌ مزدحمةٌ بكلِّ ما كنّا نريدُ قوله.","نمرُّ بها كلَّ ليلة، نرتّبُ الكلامَ على الرفوف، ثم نغلقُ البابَ بهدوءٍ كي لا يستيقظَ الحنين."]},{"id":"w3","sec":"s1","type":"poem","sample":true,"title":"تأخّر القمر","date":"٦ أكتوبر","body":["القمرُ الليلةَ متأخّر","كأنهُ يقرأُ رسائلَ لم تُرسَل","ويتردّدُ","قبلَ أن يضيءَ وجوهنا"]},{"id":"l1","sec":"s2","type":"letter","sample":true,"title":"إلى قلبٍ تعب وهو يتظاهر بالقوة","date":"١١ أكتوبر","from":"من أحدٍ يفهمك","body":["لا بأس أن تتعب. لا أحد يطلب منك أن تحمل كلَّ شيء وتبتسم في الوقت نفسه.","ضع عنك ما يثقلك قليلًا، واسمح لنفسك أن تكون ضعيفًا لليلةٍ واحدة. الصباحُ سيجدك كما أنت، وسيكفيه ذلك."]},{"id":"l2","sec":"s2","type":"letter","sample":true,"title":"إلى من يشتاق بصمت","date":"٨ أكتوبر","from":"من قلبٍ يعرف هذا الشعور","body":["شوقُك ليس ضعفًا، إنه الدليل على أن في داخلك مكانًا ما زال حيًّا.","وإن لم تقله بصوتٍ عالٍ، فاعلم أن بعضَ الأشواق تصل دون أن تُرسَل."]},{"id":"l3","sec":"s2","type":"letter","sample":true,"title":"إلى نفسي القديمة","date":"٣ أكتوبر","from":"نفسك التي كبرت","body":["أريدُ أن أقول لكِ إنكِ نجوتِ، وإن كلَّ ما خِفتِ منه كان أصغرَ مما ظننتِ.","شكرًا لأنكِ لم تتوقفي."]}]}</script>
+
+<script id="app">
+(function () {
+  var DRAFT_KEY = "abd_site_draft_v4", ADMIN_KEY = "abd_site_admin_v4", CFG_KEY = "abd_site_pubcfg_v1";
+  var DEFAULTS = { name: "عبد الرحمن", line1: "بعضُ الكلام", line2: "يشفي", bio: "", theme: "green", scale: 1, showDates: true, showShare: true, font: "", titleFont: "" };
+  var THEMES = [
+    { id: "green", name: "صباح أخضر", sw: ["#E6EDE4", "#4D7C6B", "#1F3A33"] },
+    { id: "dusk", name: "حبر الغسق", sw: ["#F3ECEE", "#8A4F6B", "#2B2233"] },
+    { id: "night", name: "ليل الياسمين", sw: ["#151B33", "#D8BC82", "#F1EADB"] },
+    { id: "bold", name: "بساطة جريئة", sw: ["#FAFAF7", "#2540D9", "#111111"] }
+  ];
+  var THEME_FONTS = { green: ["scheherazade"], dusk: ["ruqaa", "amiri"], night: ["reem", "naskh"], bold: ["lalezar", "amiri"] };
+  var FONTS = [
+    { id: "scheherazade", name: "شهرزاد", fam: "Scheherazade New", w: "400;700", k: "serif", s: 1 },
+    { id: "amiri", name: "أميري", fam: "Amiri", w: "400;700", k: "serif", s: 1 },
+    { id: "naskh", name: "نسخ نوتو", fam: "Noto Naskh Arabic", w: "400;700", k: "serif", s: 0.95 },
+    { id: "lateef", name: "لطيف", fam: "Lateef", w: "400;700", k: "serif", s: 1.15 },
+    { id: "markazi", name: "مركزي", fam: "Markazi Text", w: "400;700", k: "serif", s: 1.05 },
+    { id: "ruqaa", name: "عارف رقعة", fam: "Aref Ruqaa", w: "400;700", k: "serif", s: 1 },
+    { id: "katibeh", name: "كاتبة", fam: "Katibeh", w: "400", k: "serif", s: 1.25 },
+    { id: "reem", name: "ريم كوفي", fam: "Reem Kufi", w: "400;700", k: "sans-serif", s: 0.95 },
+    { id: "lalezar", name: "لاله‌زار", fam: "Lalezar", w: "400", k: "sans-serif", s: 1 },
+    { id: "messiri", name: "المسيري", fam: "El Messiri", w: "400;700", k: "sans-serif", s: 1 },
+    { id: "rakkas", name: "رقّاص", fam: "Rakkas", w: "400", k: "sans-serif", s: 0.95 },
+    { id: "cairo", name: "القاهرة", fam: "Cairo", w: "400;700", k: "sans-serif", s: 0.92 },
+    { id: "almarai", name: "المراعي", fam: "Almarai", w: "400;700", k: "sans-serif", s: 0.92 },
+    { id: "changa", name: "تشانغا", fam: "Changa", w: "400;700", k: "sans-serif", s: 0.95 },
+    { id: "lemonada", name: "ليمونادا", fam: "Lemonada", w: "400;700", k: "sans-serif", s: 0.9 }
+  ];
+  var FONT_BY = {}; FONTS.forEach(function (f) { FONT_BY[f.id] = f; });
+  var TYPE_LABEL = { poem: "شعر", prose: "نثر", letter: "رسالة" };
+  var CLAMP_CHARS = 340;
+
+  var $ = function (id) { return document.getElementById(id); };
+  document.getElementById("root").appendChild(document.getElementById("skeleton").content.cloneNode(true));
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+  function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function uid() { return "n" + Date.now().toString(36) + Math.floor(Math.random() * 1296).toString(36); }
+  function today() { try { return new Intl.DateTimeFormat("ar-EG-u-ca-gregory", { day: "numeric", month: "long" }).format(new Date()); } catch (e) { return ""; } }
+  function lines(t) { return t.split(/\n+/).map(function (s) { return s.trim(); }).filter(Boolean); }
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+
+  /* ---------- البيانات ---------- */
+  function migrate(o) {
+    if (o.sections && o.entries) return o;
+    var st = o.settings || {};
+    o.sections = [{ id: "s1", name: st.tab1 || "شعر ونثر" }, { id: "s2", name: st.tab2 || "رسائل للقلوب" }];
+    o.entries = [];
+    (o.writings || []).forEach(function (w) { o.entries.push({ id: w.id, sec: "s1", type: w.kind === "شعر" ? "poem" : "prose", title: w.title, date: w.date, body: w.body, sample: w.sample }); });
+    (o.letters || []).forEach(function (l) { o.entries.push({ id: l.id, sec: "s2", type: "letter", title: l.to, from: l.from, date: l.date, body: l.body, sample: l.sample }); });
+    delete o.writings; delete o.letters;
+    return o;
+  }
+  function normalize(o) {
+    o = migrate(o);
+    o.settings = Object.assign({}, DEFAULTS, o.settings || {});
+    delete o.settings.tab1; delete o.settings.tab2;
+    if (!o.sections || !o.sections.length) o.sections = [{ id: "s1", name: "النصوص" }];
+    o.entries = o.entries || [];
+    o.rev = o.rev || 1;
+    return o;
+  }
+  function getCfg() { try { var c = JSON.parse(store.get(CFG_KEY) || "null"); return c && c.repo && c.token ? c : null; } catch (e) { return null; } }
+
+  var pub = normalize(JSON.parse(document.getElementById("data").textContent));
+  var inClaude = typeof claude !== "undefined" && !!claude.use;
+  var admin = store.get(ADMIN_KEY) === "1" && (inClaude || !!getCfg());
+  var state = pub;
+  if (admin) {
+    try {
+      var d = JSON.parse(store.get(DRAFT_KEY) || "null");
+      if (d && d.rev > pub.rev) state = normalize(d); else store.del(DRAFT_KEY);
+    } catch (e) { store.del(DRAFT_KEY); }
+  }
+  var tab = state.sections[0].id, filter = "all", editing = null, selTheme = state.settings.theme, art = null, busy = false;
+  var edPicker = null, pickBody = null, pickTitle = null, wsec = [];
+
+  function mutate(fn) {
+    if (state === pub) state = clone(pub);
+    fn();
+    state.rev = pub.rev + 1;
+    store.set(DRAFT_KEY, JSON.stringify(state));
+    applySettings(); render(); updateStatus();
+  }
+  function findEntry(id) { return state.entries.filter(function (x) { return x.id === id; })[0]; }
+  function curSection() { return state.sections.filter(function (s) { return s.id === tab; })[0] || state.sections[0]; }
+
+  /* ---------- الخطوط ---------- */
+  function stack(f) { return '"' + f.fam + '", ' + (f.k === "serif" ? '"Traditional Arabic", serif' : "sans-serif"); }
+  function fontHref(f) { return "https://fonts.googleapis.com/css2?family=" + f.fam.replace(/ /g, "+") + ":wght@" + f.w + "&display=swap"; }
+  function ensureFont(id) {
+    var f = FONT_BY[id]; if (!f) return;
+    var lid = "font-" + id;
+    if (document.getElementById(lid)) return;
+    var l = document.createElement("link"); l.id = lid; l.rel = "stylesheet"; l.href = fontHref(f);
+    document.head.appendChild(l);
+  }
+  function usedFonts() {
+    var s = state.settings, out = [];
+    function add(id) { if (id && FONT_BY[id] && out.indexOf(id) < 0) out.push(id); }
+    (THEME_FONTS[s.theme] || []).forEach(add); add(s.font); add(s.titleFont);
+    state.entries.forEach(function (e) { add(e.font); });
+    return out;
+  }
+  function makePicker(box, initial, defLabel) {
+    var api = { value: initial && FONT_BY[initial] ? initial : "" }, btns = [];
+    box.textContent = "";
+    [{ id: "", name: defLabel }].concat(FONTS).forEach(function (f) {
+      var b = el("button", "fopt"); b.type = "button";
+      b.appendChild(el("span", "fname", f.name));
+      var sm = el("span", "fsample", "بعضُ الكلام يشفي");
+      if (f.id) { ensureFont(f.id); sm.style.fontFamily = stack(f); sm.style.fontSize = f.s + "em"; }
+      b.appendChild(sm);
+      b.setAttribute("aria-pressed", api.value === f.id ? "true" : "false");
+      b.addEventListener("click", function () {
+        api.value = f.id;
+        btns.forEach(function (x) { x.b.setAttribute("aria-pressed", x.id === api.value ? "true" : "false"); });
+      });
+      btns.push({ b: b, id: f.id }); box.appendChild(b);
+    });
+    return api;
+  }
+
+  /* ---------- أدوات ---------- */
+  var toastTimer;
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  function legacyCopy(text) {
+    try { var ta = document.createElement("textarea"); ta.value = text; ta.style.cssText = "position:fixed;opacity:0;top:0;left:0"; document.body.appendChild(ta); ta.select(); var ok = document.execCommand("copy"); document.body.removeChild(ta); return ok; } catch (e) { return false; }
+  }
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return legacyCopy(text); });
+    }
+    return Promise.resolve(legacyCopy(text));
+  }
+  function entryUrl(id) { return /^https?:/.test(location.protocol) ? location.origin + location.pathname + "#e-" + id : ""; }
+  function share(text, title, id) {
+    var data = { title: title, text: text }, u = entryUrl(id); if (u) data.url = u;
+    if (navigator.share) {
+      return navigator.share(data).catch(function (e) {
+        if (e && e.name === "AbortError") return;
+        return copyText(text).then(function (ok) { toast(ok ? "تم نسخ النص" : "تعذّر النسخ"); });
+      });
+    }
+    return copyText(text).then(function (ok) { toast(ok ? "تم نسخ النص" : "تعذّر النسخ"); });
+  }
+
+  /* ---------- الإعدادات والعرض ---------- */
+  function applySettings() {
+    var s = state.settings, r = document.documentElement;
+    r.setAttribute("data-t", s.theme);
+    r.style.setProperty("--scale", s.scale);
+    var fb = FONT_BY[s.font], ft = FONT_BY[s.titleFont];
+    if (fb) { r.style.setProperty("--f-body", stack(fb)); r.style.setProperty("--fscale", fb.s); } else { r.style.removeProperty("--f-body"); r.style.removeProperty("--fscale"); }
+    if (ft) r.style.setProperty("--f-display", stack(ft)); else r.style.removeProperty("--f-display");
+    usedFonts().forEach(ensureFont);
+    $("siteName").textContent = s.name;
+    var h = $("heroTitle"); h.textContent = s.line1; if (s.line2) h.appendChild(el("span", null, s.line2));
+    var b = $("bio"); b.textContent = s.bio || ""; b.hidden = !s.bio;
+    document.title = s.name;
+  }
+  function entryFont(art, it) {
+    var f = FONT_BY[it.font]; if (!f) return;
+    var g = FONT_BY[state.settings.font];
+    art.style.setProperty("--f-body", stack(f)); art.style.setProperty("--f-display", stack(f));
+    art.style.fontSize = (f.s / (g ? g.s : 1)) + "em";
+  }
+  function moveEntry(id, dir) {
+    mutate(function () {
+      var arr = state.entries, i = arr.findIndex(function (x) { return x.id === id; });
+      if (i < 0) return;
+      var j = i + dir;
+      while (j >= 0 && j < arr.length && arr[j].sec !== arr[i].sec) j += dir;
+      if (j < 0 || j >= arr.length) return;
+      var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    });
+  }
+  function actions(getText, title, it, idx, total, canMove) {
+    var s = state.settings, box = el("div", "actions");
+    if (s.showShare) {
+      var c = el("button", null, "نسخ"); c.type = "button";
+      c.addEventListener("click", function () { copyText(getText()).then(function (ok) { toast(ok ? "تم نسخ النص" : "تعذّر النسخ"); }); });
+      var sh = el("button", null, "مشاركة"); sh.type = "button";
+      sh.addEventListener("click", function () { share(getText(), title, it.id); });
+      box.append(c, sh);
+    }
+    if (admin) {
+      var e = el("button", "owner-btn", "تعديل"); e.type = "button";
+      e.addEventListener("click", function () { openEditor(it.id); });
+      box.append(e);
+      if (canMove) {
+        if (idx > 0) { var up = el("button", "owner-btn", "أعلى"); up.type = "button"; up.addEventListener("click", function () { moveEntry(it.id, -1); }); box.append(up); }
+        if (idx < total - 1) { var dn = el("button", "owner-btn", "أسفل"); dn.type = "button"; dn.addEventListener("click", function () { moveEntry(it.id, 1); }); box.append(dn); }
+      }
+      var del = el("button", "danger", "حذف"); del.type = "button";
+      var armed = false;
+      del.addEventListener("click", function () {
+        if (!armed) { armed = true; del.textContent = "تأكيد الحذف"; setTimeout(function () { armed = false; del.textContent = "حذف"; }, 3000); return; }
+        mutate(function () { state.entries = state.entries.filter(function (x) { return x.id !== it.id; }); }); toast("تم الحذف");
+      });
+      box.append(del);
+    }
+    return box;
+  }
+  function clampWrap(bodyEl, art, long) {
+    if (!long) return;
+    bodyEl.classList.add("clamped");
+    var more = el("button", "more", "اقرأ المزيد"); more.type = "button";
+    more.addEventListener("click", function () { var on = bodyEl.classList.toggle("clamped"); more.textContent = on ? "اقرأ المزيد" : "إخفاء"; });
+    art.appendChild(more);
+  }
+  function entryEl(it, secEntries) {
+    var s = state.settings, idx = secEntries.indexOf(it), total = secEntries.length, canMove = filter === "all";
+    var art, body, sep = it.type === "poem" ? "\n" : "\n\n";
+    if (it.type === "letter") {
+      art = el("article", "letter");
+      art.appendChild(el("p", "to", it.title));
+      body = el("div", "body"); it.body.forEach(function (p) { body.appendChild(el("p", null, p)); }); art.appendChild(body);
+      clampWrap(body, art, it.body.join("").length > CLAMP_CHARS);
+      var from = el("p", "from", it.from || ""); if (s.showDates && it.date) from.appendChild(el("span", "date", it.date)); art.appendChild(from);
+      art.appendChild(actions(function () { return it.title + "\n\n" + it.body.join("\n\n") + "\n\n" + (it.from || ""); }, it.title, it, idx, total, canMove));
+    } else {
+      art = el("article", "entry");
+      art.appendChild(el("h2", null, it.title));
+      var meta = el("div", "meta"); meta.append(el("span", null, TYPE_LABEL[it.type] || ""));
+      if (s.showDates && it.date) meta.append(el("span", "date", it.date));
+      art.appendChild(meta);
+      body = el("div", it.type === "poem" ? "poem" : "prose");
+      it.body.forEach(function (ln) { body.appendChild(el("p", null, ln)); });
+      art.appendChild(body);
+      clampWrap(body, art, it.body.join("").length > CLAMP_CHARS);
+      art.appendChild(actions(function () { return it.title + "\n\n" + it.body.join(sep) + "\n\n— " + s.name; }, it.title, it, idx, total, canMove));
+    }
+    art.id = "e-" + it.id;
+    entryFont(art, it);
+    return art;
+  }
+  function renderTabs() {
+    var box = $("tabs"), cur = curSection(); box.textContent = "";
+    state.sections.forEach(function (s) {
+      var b = el("button", "tab", s.name); b.type = "button";
+      b.setAttribute("role", "tab"); b.setAttribute("aria-selected", s.id === cur.id ? "true" : "false");
+      b.addEventListener("click", function () { filter = "all"; setTab(s.id, true); window.scrollTo({ top: 0 }); });
+      box.appendChild(b);
+    });
+  }
+  function renderChips(secEntries) {
+    var box = $("chips"); box.textContent = "";
+    var hasPoem = secEntries.some(function (x) { return x.type === "poem"; });
+    var hasProse = secEntries.some(function (x) { return x.type === "prose"; });
+    box.hidden = !(hasPoem && hasProse);
+    [["all", "الكل"], ["poem", "شعر"], ["prose", "نثر"]].forEach(function (p) {
+      var b = el("button", "chip", p[1]); b.type = "button";
+      b.setAttribute("aria-pressed", filter === p[0] ? "true" : "false");
+      b.addEventListener("click", function () { filter = p[0]; render(); });
+      box.appendChild(b);
+    });
+  }
+  function render() {
+    var cur = curSection(); tab = cur.id;
+    renderTabs();
+    var secEntries = state.entries.filter(function (x) { return x.sec === cur.id; });
+    var hasPoem = secEntries.some(function (x) { return x.type === "poem"; });
+    var hasProse = secEntries.some(function (x) { return x.type === "prose"; });
+    if (!(hasPoem && hasProse)) filter = "all";
+    var list = secEntries.filter(function (x) { return filter === "all" || x.type === filter; });
+    var box = $("list"); box.textContent = "";
+    list.forEach(function (it) { box.appendChild(entryEl(it, secEntries)); });
+    if (!list.length) box.appendChild(el("p", "empty", "لا توجد نصوص في هذا القسم بعد."));
+    renderChips(secEntries);
+    $("sampleNote").hidden = !state.entries.some(function (x) { return x.sample; });
+    $("adminBar").hidden = !admin; $("badge").hidden = !admin;
+    document.body.classList.toggle("admin", admin);
+  }
+
+  /* ---------- التنقل ---------- */
+  function setTab(id, push) {
+    tab = id; render();
+    if (push) { try { history.replaceState(null, "", "#s-" + id); } catch (e) {} }
+  }
+  function route() {
+    var h = location.hash;
+    if (h === "#admin") { try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} if (!admin) enterAdmin(); return; }
+    if (h === "#writings") { setTab(state.sections[0].id); return; }
+    if (h === "#letters") { setTab((state.sections[1] || state.sections[0]).id); return; }
+    if (h.indexOf("#s-") === 0) {
+      var sid = h.slice(3);
+      if (state.sections.some(function (s) { return s.id === sid; })) setTab(sid);
+      return;
+    }
+    if (h.indexOf("#e-") === 0) {
+      var id = h.slice(3), it = findEntry(id);
+      if (it) {
+        filter = "all"; setTab(it.sec);
+        var n = $("e-" + id);
+        if (n) { n.scrollIntoView(); n.classList.add("flash"); setTimeout(function () { n.classList.remove("flash"); }, 1800); }
+      }
+    }
+  }
+
+  /* ---------- النوافذ ---------- */
+  function openSheet(id) { $(id).hidden = false; document.body.style.overflow = "hidden"; $(id).scrollTop = 0; }
+  function closeSheets() { ["editor", "settings", "publish", "token"].forEach(function (id) { $(id).hidden = true; }); document.body.style.overflow = ""; }
+  function syncType() {
+    var k = $("fType").value;
+    $("rowFrom").hidden = k !== "letter";
+    $("lTitle").textContent = k === "letter" ? "إلى من؟ (مثال: إلى قلبٍ تعب)" : "العنوان";
+    $("hBody").textContent = k === "poem" ? "اكتب كل سطر شعري في سطر منفصل." : "اكتب كل فقرة في سطر منفصل.";
+  }
+  $("fType").addEventListener("change", syncType);
+  function openEditor(id) {
+    var it = id ? findEntry(id) : null;
+    editing = it ? id : null;
+    $("edErr").textContent = "";
+    $("edTitle").textContent = it ? "تعديل النص" : "نص جديد";
+    var sel = $("fSec"); sel.textContent = "";
+    state.sections.forEach(function (s) { var o = el("option", null, s.name); o.value = s.id; sel.appendChild(o); });
+    var cur = curSection();
+    sel.value = it ? it.sec : cur.id;
+    if (it) $("fType").value = it.type;
+    else {
+      var se = state.entries.filter(function (x) { return x.sec === cur.id; });
+      $("fType").value = se.length && se.every(function (x) { return x.type === "letter"; }) ? "letter" : "poem";
+    }
+    $("fTitle").value = it ? it.title : ""; $("fBody").value = it ? it.body.join("\n") : "";
+    $("fFrom").value = it && it.from ? it.from : ""; $("fDate").value = it ? (it.date || "") : today();
+    edPicker = makePicker($("edFonts"), it ? it.font : "", "خط الموقع الافتراضي");
+    syncType(); openSheet("editor");
+  }
+  $("edSave").addEventListener("click", function () {
+    var sec = $("fSec").value, type = $("fType").value, title = $("fTitle").value.trim(), body = lines($("fBody").value), date = $("fDate").value.trim(), from = $("fFrom").value.trim(), font = edPicker ? edPicker.value : "";
+    if (!title) { $("edErr").textContent = "اكتب العنوان أولًا."; return; }
+    if (!body.length) { $("edErr").textContent = "اكتب النص أولًا."; return; }
+    var isNew = !editing;
+    mutate(function () {
+      var it;
+      if (editing) { it = findEntry(editing); if (!it) return; delete it.sample; }
+      else { it = { id: uid() }; state.entries.unshift(it); }
+      it.sec = sec; it.type = type; it.title = title; it.date = date; it.body = body;
+      if (type === "letter") it.from = from; else delete it.from;
+      if (font) it.font = font; else delete it.font;
+    });
+    closeSheets(); tab = sec; filter = "all"; render();
+    if (isNew) window.scrollTo({ top: 0 });
+    toast("تم الحفظ، اضغط «نشر» لتظهر للزوار");
+  });
+  $("edClose").addEventListener("click", closeSheets);
+  $("edCancel").addEventListener("click", closeSheets);
+
+  function renderThemes() {
+    var box = $("themeList"); box.textContent = "";
+    THEMES.forEach(function (t) {
+      var b = el("button", "theme"); b.type = "button";
+      b.setAttribute("aria-pressed", selTheme === t.id ? "true" : "false");
+      b.appendChild(el("div", null, t.name));
+      var sw = el("div"); t.sw.forEach(function (c) { var s = el("span", "sw"); s.style.background = c; sw.appendChild(s); }); b.appendChild(sw);
+      b.addEventListener("click", function () { selTheme = t.id; renderThemes(); });
+      box.appendChild(b);
+    });
+  }
+  function renderSections() {
+    var box = $("secList"); box.textContent = "";
+    wsec.forEach(function (s, i) {
+      var row = el("div", "secrow");
+      var inp = el("input"); inp.type = "text"; inp.value = s.name; inp.setAttribute("aria-label", "اسم القسم");
+      inp.addEventListener("input", function () { s.name = inp.value; });
+      row.appendChild(inp);
+      var up = el("button", "mini", "أعلى"); up.type = "button"; up.disabled = i === 0;
+      up.addEventListener("click", function () { var t = wsec[i - 1]; wsec[i - 1] = wsec[i]; wsec[i] = t; renderSections(); });
+      var dn = el("button", "mini", "أسفل"); dn.type = "button"; dn.disabled = i === wsec.length - 1;
+      dn.addEventListener("click", function () { var t = wsec[i + 1]; wsec[i + 1] = wsec[i]; wsec[i] = t; renderSections(); });
+      var del = el("button", "mini danger", "حذف"); del.type = "button";
+      var n = state.entries.filter(function (x) { return x.sec === s.id; }).length, armed = false;
+      del.addEventListener("click", function () {
+        if (wsec.length <= 1) { toast("يجب أن يبقى قسم واحد على الأقل"); return; }
+        if (!armed && n) { armed = true; del.textContent = "سيُحذف " + n + " نص"; setTimeout(function () { armed = false; del.textContent = "حذف"; }, 3000); return; }
+        wsec.splice(i, 1); renderSections();
+      });
+      row.append(up, dn, del);
+      box.appendChild(row);
+    });
+  }
+  function openSettings() {
+    var s = state.settings; selTheme = s.theme;
+    $("setErr").textContent = "";
+    $("sName").value = s.name; $("sL1").value = s.line1; $("sL2").value = s.line2; $("sBio").value = s.bio;
+    $("sScale").value = String(s.scale); $("sDates").checked = !!s.showDates; $("sShare").checked = !!s.showShare;
+    wsec = clone(state.sections); renderSections();
+    renderThemes();
+    pickBody = makePicker($("gfBody"), s.font, "حسب التصميم");
+    pickTitle = makePicker($("gfTitle"), s.titleFont, "حسب التصميم");
+    openSheet("settings");
+  }
+  $("secAdd").addEventListener("click", function () {
+    wsec.push({ id: uid(), name: "قسم جديد" }); renderSections();
+    var inputs = $("secList").querySelectorAll("input"); var last = inputs[inputs.length - 1]; if (last) { last.focus(); last.select(); }
+  });
+  $("setSave").addEventListener("click", function () {
+    var n = $("sName").value.trim(), a = $("sL1").value.trim();
+    if (!n || !a) { $("setErr").textContent = "الاسم والسطر الأول مطلوبان."; return; }
+    var keep = {}, secs = wsec.map(function (s) { keep[s.id] = 1; return { id: s.id, name: (s.name || "").trim() || "قسم" }; });
+    mutate(function () {
+      var s = state.settings;
+      s.name = n; s.line1 = a; s.line2 = $("sL2").value.trim(); s.bio = $("sBio").value.trim();
+      s.theme = selTheme; s.scale = parseFloat($("sScale").value) || 1;
+      s.showDates = $("sDates").checked; s.showShare = $("sShare").checked;
+      s.font = pickBody ? pickBody.value : ""; s.titleFont = pickTitle ? pickTitle.value : "";
+      state.entries = state.entries.filter(function (e) { return keep[e.sec]; });
+      state.sections = secs;
+    });
+    closeSheets(); toast("تم حفظ الإعدادات، اضغط «نشر» لتظهر للزوار");
+  });
+  $("setClose").addEventListener("click", closeSheets);
+  $("setCancel").addEventListener("click", closeSheets);
+
+  /* ---------- النشر ---------- */
+  function buildHtml() {
+    var s = state.settings;
+    var head = '<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n<title>' + esc(s.name) + '</title>\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
+      '<link id="font-ui" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;display=swap">\n';
+    usedFonts().forEach(function (id) { head += '<link id="font-' + id + '" rel="stylesheet" href="' + esc(fontHref(FONT_BY[id])) + '">\n'; });
+    var json = JSON.stringify(clone(state)).replace(/</g, "\\u003c");
+    return '<!DOCTYPE html>\n<html lang="ar" dir="rtl" data-t="' + esc(s.theme) + '">\n<head>\n' + head +
+      '<style id="css">' + document.getElementById("css").textContent + '</style>\n</head>\n<body>\n<div id="root"></div>\n' +
+      '<template id="skeleton">' + document.getElementById("skeleton").innerHTML + '</template>\n\n' +
+      '<script type="application/json" id="data">' + json + '</scr' + 'ipt>\n\n' +
+      '<script id="app">' + document.getElementById("app").textContent + '</scr' + 'ipt>\n</body>\n</html>\n';
+  }
+  function updateStatus() {
+    var dirty = state !== pub;
+    $("dot").hidden = !dirty;
+    $("pubStatus").textContent = dirty ? "لديك تعديلات لم تُنشر بعد. هي محفوظة على هذا الجهاز فقط ولا يراها الزوار." : "لا توجد تعديلات جديدة غير منشورة.";
+  }
+  function toB64(str) {
+    var bytes = new TextEncoder().encode(str), bin = "", CH = 0x8000;
+    for (var i = 0; i < bytes.length; i += CH) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + CH));
+    return btoa(bin);
+  }
+  function ghVerify(repo, tk) {
+    return fetch("https://api.github.com/repos/" + repo, { headers: { "Authorization": "Bearer " + tk, "Accept": "application/vnd.github+json" } })
+      .then(function (r) {
+        if (r.status === 401) return { r: "bad" };
+        if (r.status === 404 || r.status === 403) return { r: "nosite" };
+        if (!r.ok) return { r: "err" };
+        return r.json().then(function (j) { return (!j.permissions || j.permissions.push) ? { r: "ok", branch: j.default_branch || "main" } : { r: "noperm" }; });
+      }).catch(function () { return { r: "net" }; });
+  }
+  var TK_MSG = {
+    bad: "المفتاح غير صحيح أو منتهي.",
+    nosite: "لم يُعثر على المستودع. تأكد من الاسم (اسم_المستخدم/اسم_المستودع) وأن المفتاح يشمله.",
+    noperm: "المفتاح لا يملك صلاحية الكتابة. اجعل Contents: Read and write.",
+    net: "تعذّر الاتصال بـ GitHub من المتصفح.",
+    err: "تعذّر التحقق، حاول مرة أخرى."
+  };
+  function ghDeploy() {
+    var cfg = getCfg(), html = buildHtml(), b64 = toB64(html);
+    var url = "https://api.github.com/repos/" + cfg.repo + "/contents/index.html";
+    var H = { "Authorization": "Bearer " + cfg.token, "Accept": "application/vnd.github+json" };
+    function getSha() {
+      return fetch(url + "?ref=" + encodeURIComponent(cfg.branch || "main"), { headers: H }).then(function (r) {
+        if (r.status === 404) return null;
+        if (!r.ok) throw new Error("http " + r.status);
+        return r.json().then(function (j) { return j.sha; });
+      });
+    }
+    function put(sha) {
+      var body = { message: "تحديث الموقع", content: b64, branch: cfg.branch || "main" };
+      if (sha) body.sha = sha;
+      return fetch(url, { method: "PUT", headers: Object.assign({ "Content-Type": "application/json" }, H), body: JSON.stringify(body) });
+    }
+    return getSha().then(put).then(function (r) {
+      if (r.status === 409 || r.status === 422) return getSha().then(put);
+      return r;
+    }).then(function (r) { if (!r.ok) throw new Error("http " + r.status); });
+  }
+  function errMsg(e) {
+    var m = (e && e.message) || "";
+    if (/http 40[13]/.test(m)) return "المفتاح لا يملك صلاحية الكتابة في هذا المستودع.";
+    if (/http 404/.test(m)) return "لم يُعثر على المستودع أو الفرع.";
+    if (/http/.test(m)) return "رفض GitHub الطلب (" + m + ").";
+    return "تعذّر الاتصال بـ GitHub.";
+  }
+  function deployNow() {
+    if (busy) return;
+    busy = true; toast("جارٍ النشر…");
+    ghDeploy().then(function () {
+      busy = false; toast("تم النشر، يظهر للزوار خلال دقيقة تقريبًا");
+    }).catch(function (e) {
+      busy = false; $("pubErr").textContent = errMsg(e); toast("تعذّر النشر المباشر");
+      updateStatus(); openSheet("publish");
+    });
+  }
+  function publishNow() {
+    if (busy) return;
+    busy = true; toast("جارٍ النشر…");
+    art.publish(buildHtml()).catch(function (e) {
+      busy = false;
+      toast(e && e.code === "conflict" ? "تغيّرت الصفحة، أعد فتحها ثم حاول مرة أخرى" : "تعذّر النشر، حاول مرة أخرى");
+    });
+  }
+  $("addBtn").addEventListener("click", function () { openEditor(null); });
+  $("setBtn").addEventListener("click", openSettings);
+  $("pubBtn").addEventListener("click", function () {
+    if (state === pub) { toast("لا توجد تعديلات جديدة للنشر"); return; }
+    if (art) { publishNow(); return; }
+    if (getCfg()) { deployNow(); return; }
+    $("pubErr").textContent = ""; updateStatus(); openSheet("publish");
+  });
+  $("pubClose").addEventListener("click", closeSheets);
+  $("pubDownload").addEventListener("click", function () {
+    try {
+      var blob = new Blob([buildHtml()], { type: "text/html;charset=utf-8" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob); a.download = "index.html";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+      toast("جارٍ تنزيل الملف");
+    } catch (e) { toast("تعذّر التنزيل، جرّب «نسخ الكود»"); }
+  });
+  $("pubCopy").addEventListener("click", function () { copyText(buildHtml()).then(function (ok) { toast(ok ? "تم نسخ الكود" : "تعذّر النسخ"); }); });
+  var discArmed = false;
+  $("pubDiscard").addEventListener("click", function () {
+    var b = $("pubDiscard");
+    if (!discArmed) { discArmed = true; b.textContent = "اضغط مرة أخرى للتأكيد"; setTimeout(function () { discArmed = false; b.textContent = "تجاهل التعديلات غير المنشورة"; }, 3000); return; }
+    store.del(DRAFT_KEY); state = pub; closeSheets(); applySettings(); render(); updateStatus(); toast("تم تجاهل التعديلات");
+  });
+  $("pubExit").addEventListener("click", function () { store.del(ADMIN_KEY); location.reload(); });
+  $("pubForget").addEventListener("click", function () { store.del(CFG_KEY); store.del(ADMIN_KEY); location.reload(); });
+
+  /* ---------- الدخول (5 ضغطات على الاسم) ---------- */
+  function enterAdmin() {
+    if (inClaude) { store.set(ADMIN_KEY, "1"); location.reload(); return; }
+    var c = getCfg();
+    if (!c) {
+      $("tkErr").textContent = "";
+      if (/\.github\.io$/.test(location.hostname)) {
+        var seg = location.pathname.split("/")[1];
+        $("tkRepo").value = location.hostname.split(".")[0] + "/" + (seg || location.hostname);
+      }
+      openSheet("token"); return;
+    }
+    ghVerify(c.repo, c.token).then(function (v) {
+      if (v.r === "ok") { store.set(ADMIN_KEY, "1"); location.reload(); return; }
+      if (v.r !== "net") store.del(CFG_KEY);
+      $("tkErr").textContent = TK_MSG[v.r] || ""; openSheet("token");
+    });
+  }
+  $("tkGo").addEventListener("click", function () {
+    var repo = $("tkRepo").value.trim().replace(/^https?:\/\/github\.com\//, "").replace(/\/+$/, ""), tk = $("tkInput").value.trim();
+    if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) { $("tkErr").textContent = "اكتب اسم المستودع بصيغة: اسم_المستخدم/اسم_المستودع"; return; }
+    if (!tk) { $("tkErr").textContent = "الصق المفتاح أولًا."; return; }
+    var btn = $("tkGo"); btn.disabled = true; btn.textContent = "جارٍ التحقق…"; $("tkErr").textContent = "";
+    ghVerify(repo, tk).then(function (v) {
+      btn.disabled = false; btn.textContent = "تفعيل";
+      if (v.r === "ok") { store.set(CFG_KEY, JSON.stringify({ repo: repo, token: tk, branch: v.branch })); store.set(ADMIN_KEY, "1"); location.reload(); }
+      else $("tkErr").textContent = TK_MSG[v.r] || "تعذّر التحقق.";
+    });
+  });
+  $("tkClose").addEventListener("click", closeSheets);
+  var taps = 0, tapTimer;
+  $("siteName").addEventListener("click", function () {
+    if (admin) return;
+    taps++; clearTimeout(tapTimer); tapTimer = setTimeout(function () { taps = 0; }, 2500);
+    if (taps >= 5) { taps = 0; enterAdmin(); }
+  });
+
+  /* ---------- تشغيل ---------- */
+  applySettings();
+  render();
+  updateStatus();
+  route();
+  window.addEventListener("hashchange", route);
+  if (inClaude) {
+    Promise.all([claude.use("artifact"), claude.use("user")]).then(function (r) {
+      if (!r[0] || !r[1]) return;
+      return r[1].isOwner().then(function (o) { if (o) art = r[0]; });
+    }).catch(function () {});
+  }
+})();
+</script>
+</body>
+</html>
